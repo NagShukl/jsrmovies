@@ -1,23 +1,24 @@
-export const LOAD_TWEETS = 'LOAD_TWEETS';
-export const SWITCH_TWEET_TYPE = 'SWITCH_TWEET_TYPE';
-export const TOGGLE_SHOW_POST = 'TOGGLE_SHOW_POST';
+export const LOAD_MOVIES = 'LOAD_MOVIES';
+export const UPDATE_SEARCH_KEY = 'UPDATE_SEARCH_KEY';
+export const UPDATE_CURRENT_PAGE = 'UPDATE_CURRENT_PAGE';
 
 //add cart action
-export const loadTweetsAction= (tweets)=>{
+export const updateMoviesAction= (movies)=>{
     return{
-        type: LOAD_TWEETS,
-        tweets
+        type: LOAD_MOVIES,
+        movies
     }
 }
-export const switchTweetTypeAction= (tweetType)=>{
+export const updateSearchKeyAction= (searchKey)=>{
     return{
-        type: SWITCH_TWEET_TYPE,
-        tweetType
+        type: UPDATE_SEARCH_KEY,
+        searchKey
     }
 }
-export const toggleShowPostAction = ()=>{
+export const updateCurrentPageAction = (cp)=>{
     return{
-        type: TOGGLE_SHOW_POST
+        type: UPDATE_CURRENT_PAGE,
+        cp
     }
 }
 // export const reduceQuantity = (id) => {

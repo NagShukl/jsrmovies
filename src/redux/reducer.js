@@ -1,35 +1,34 @@
-import {LOAD_TWEETS, SWITCH_TWEET_TYPE, TOGGLE_SHOW_POST} from './actions'
+import {LOAD_MOVIES, UPDATE_SEARCH_KEY, UPDATE_CURRENT_PAGE} from './actions'
 import initState from './redux';
 
   const AppReducer = (state = initState, action) => {
     switch (action.type) {
-      case LOAD_TWEETS:
-          return loadTweets(action.tweets, state);
-      case SWITCH_TWEET_TYPE:
-        return switchTweetType(action.tweetType, state);
-      case TOGGLE_SHOW_POST:
-        return toggleShowPost(state);
+      case LOAD_MOVIES:
+          return updateMovies(action.movies, state);
+      case UPDATE_SEARCH_KEY:
+        return updateSearchKey(action.searchKey, state);
+      case UPDATE_CURRENT_PAGE:
+        return updateCurrentPage(action.cp, state);
       default:
         return state;
     }
   }
-const loadTweets = (tweets, state) => {
+const updateMovies = (movies, state) => {
     return {
         ...state,
-        tweets
+        movies
       }
 }
-const switchTweetType = (tweetType, state) => {
+const updateSearchKey = (searchKey, state) => {
     return {
         ...state,
-        selectedTweetType: tweetType,
-        refreshLocal: false
+        searchKey: searchKey
       }
 }
-const toggleShowPost = (state) => {
+const updateCurrentPage = (cp, state) => {
   return {
       ...state,
-      showPostTweet: !state.showPostTweet
+      currentPage: cp
     }
 }
   export default AppReducer;
