@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import movieService from '../services/api/Movie';
-import { updateMoviesAction, updateSearchKeyAction, updateCurrentPageAction } from '../redux/actions';
+import { updateMoviesAction, updateSeclectedMovieAction, updateCurrentPageAction } from '../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import MovieList from './MovieList';
 import SearchContainer from './searchContainer';
@@ -40,14 +40,11 @@ const MovieApp = () => {
       setMovies({ ...movies });
     })
   });
-  // const getMovieDetailsPanelClass = () => {
-  //   if(selectedMovie === '') {
-  //     return ;
-  //   }else {
-  //     return 'movieDetailsPanel flex-column';
-  //   }
-  //   widthFull
-  // }
+
+  const clearMovieSelection = () => {
+    dispatch(updateSeclectedMovieAction(''));
+  }
+  
   
   return (
     <div className="movieApp d-flex flex-row">
@@ -62,10 +59,11 @@ const MovieApp = () => {
            movies.totalResults > 0?<PagingBar totalResults={movies.totalResults}></PagingBar>
            :''
         }
-        <div className="overlaySearchPanel"></div>
+        
       </div>
       <div className={selectedMovie === ''?'movieDetailsPanel flex-column noDisplay':'movieDetailsPanel flex-column'}>
         Jai Shri Ram!!
+        <div className="hideDetails" onClick={clearMovieSelection}>X</div>
       </div>
     </div>
   );

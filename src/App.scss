@@ -17,18 +17,23 @@ body {
             .searchPanel {
                 border-right: 1px solid darkgray;
                 min-width: 30%;
+                transition: width 2s;
                 @media screen and (max-width: 500px) {
-                    min-width: 30px;
+                   width: 100%;
+                   position: fixed;
+                   top: 0;
+                   height: 100%;
+                   transition: opacity 2s;
                 }
-                .overlaySearchPanel {
-                    position: fixed;
-                    height: 100%;
-                    width: 30px;
-                    background-color: red;
-                    top: 0;
-                    z-index: -1;
-                    opacity: 0;
-                }
+                // .overlaySearchPanel {
+                //     position: fixed;
+                //     height: 100%;
+                //     width: 30px;
+                //     background-color: red;
+                //     top: 0;
+                //     z-index: -1;
+                //     opacity: 0;
+                // }
                 
                 ul {
                     // background-color: green;
@@ -70,6 +75,31 @@ body {
                 width: 100%;
                 animation-name: mainPanelSlideIn;
                 animation-duration: 2s;
+                @media screen and (max-width: 500px) {
+                    width: 100%;
+                    position: fixed;
+                    top: 0;
+                    height: 100%;
+                    opacity: 1;
+                    z-index: 10;
+                 }
+                 .hideDetails {
+                    // opacity: 0;
+                    // z-index: -1;
+                    // @media screen and (max-width: 500px) {
+                        position: fixed;
+                        top: 10px;
+                        opacity: 1;
+                        z-index: 100;
+                        right: 0;
+                        margin-right: 10px;
+                        background-color: red;
+                        width: 25px;
+                        height: 25px;
+                        text-align: center;
+                        font-weight: bolder;
+                    // }
+                 }
             }
             .noDisplay {
                 display: none;
@@ -78,12 +108,18 @@ body {
                 width: 100%;
             }
             .width30p {
-                width: 30%;
+                @media screen and (min-width: 500px) {
+                    width: 30%;
+                    transition: width 2s;
+                }               
                 @media screen and (max-width: 500px) {
-                    width: 30px;
-                    // display: none;
+                    // width: 30px;
+                    opacity: 0;
+                    z-index: -1;
+                    transition: opacity 2s;
+                    // transition: width 2s;
                 }
-                transition: width 2s;
+                
             }
         }        
     }
