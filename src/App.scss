@@ -98,7 +98,12 @@ body {
                         height: 25px;
                         text-align: center;
                         font-weight: bolder;
+                        border-radius: 50%;
                     // }
+                    &:hover {
+                        color: white;
+                        cursor: pointer;
+                    }
                  }
             }
             .noDisplay {
