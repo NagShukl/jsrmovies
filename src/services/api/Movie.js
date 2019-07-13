@@ -17,7 +17,6 @@ export default class Movie {
         apikey: API_KEY,
         i: id
       }
-    }).then(response => response.data)
-      .catch(error => error);
+    });
   }
 }

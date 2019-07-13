@@ -3,6 +3,7 @@ import movieService from '../services/api/Movie';
 import { updateMoviesAction, updateSeclectedMovieAction, updateCurrentPageAction } from '../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import MovieList from './MovieList';
+import MovieDetails from './MovieDetails';
 import SearchContainer from './searchContainer';
 import PagingBar from './PagingBar';
 
@@ -62,7 +63,7 @@ const MovieApp = () => {
         
       </div>
       <div className={selectedMovie === ''?'movieDetailsPanel flex-column noDisplay':'movieDetailsPanel flex-column'}>
-        Jai Shri Ram!!
+        <MovieDetails></MovieDetails>
         <div className="hideDetails" onClick={clearMovieSelection}>X</div>
       </div>
     </div>

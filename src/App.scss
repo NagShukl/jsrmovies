@@ -18,7 +18,7 @@ body {
                 border-right: 1px solid darkgray;
                 min-width: 30%;
                 transition: width 2s;
-                @media screen and (max-width: 500px) {
+                @media screen and (max-width: 900px) {
                    width: 100%;
                    position: fixed;
                    top: 0;
@@ -34,7 +34,7 @@ body {
                     overflow-x: hidden;
                 }
                 .pagingBar {
-                    position: fixed;
+                    position: inherit;
                     bottom: 0;
                     width: 100%;
                     opacity: 1;
@@ -82,9 +82,32 @@ body {
                 width: 100%;
                 animation-name: mainPanelSlideIn;
                 animation-duration: 2s;
-                height: auto;
-                overflow-y: auto;
-                @media screen and (max-width: 500px) {
+                .MovieDetails {
+                    height: 90vh;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    margin: 10px;
+                    width: 97%;
+                    .movieTitle {
+                        font-size: x-large;
+                    }
+                    .moviePoster {
+                        float: right;
+                        text-align: center;
+                        img {
+                            width: 300px;
+                            height: 450px;;    
+                        }
+                        
+                    }
+                    .moviePlot {
+                        padding: 1px;
+                        margin-top: 20px;
+                    }
+
+                }
+                
+                @media screen and (max-width: 900px) {
                     width: 100%;
                     position: fixed;
                     top: 0;
@@ -96,7 +119,7 @@ body {
                  .hideDetails {
                     // opacity: 0;
                     // z-index: -1;
-                    // @media screen and (max-width: 500px) {
+                    // @media screen and (max-width: 900px) {
                         position: fixed;
                         top: 10px;
                         opacity: 1;
@@ -127,7 +150,7 @@ body {
                     width: 30%;
                     transition: width 2s;
                 }               
-                @media screen and (max-width: 500px) {
+                @media screen and (max-width: 900px) {
                     // width: 30px;
                     opacity: 0;
                     z-index: -1;
