@@ -25,15 +25,22 @@ body {
                    height: 100%;
                    transition: opacity 2s;
                 }
-                // .overlaySearchPanel {
-                //     position: fixed;
-                //     height: 100%;
-                //     width: 30px;
-                //     background-color: red;
-                //     top: 0;
-                //     z-index: -1;
-                //     opacity: 0;
-                // }
+                .movieList {
+                    height: 90vh;
+                    // height: calc(100vh-100px);
+                    // height:-moz-calc(100vh-100px);
+                    // height:-webkit-calc(100vh-100px);
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                }
+                .pagingBar {
+                    position: fixed;
+                    bottom: 0;
+                    width: 100%;
+                    opacity: 1;
+                    z-index: 150;
+                    background-color: white;
+                }
                 
                 ul {
                     // background-color: green;
@@ -75,11 +82,14 @@ body {
                 width: 100%;
                 animation-name: mainPanelSlideIn;
                 animation-duration: 2s;
+                height: auto;
+                overflow-y: auto;
                 @media screen and (max-width: 500px) {
                     width: 100%;
                     position: fixed;
                     top: 0;
-                    height: 100%;
+                    height: auto;
+                    overflow-y: auto;
                     opacity: 1;
                     z-index: 10;
                  }
