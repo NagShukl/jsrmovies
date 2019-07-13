@@ -11,6 +11,7 @@ const MovieApp = () => {
   const movies = useSelector(state => state.movies);
   const searchKey = useSelector(state => state.searchKey);
   const currentPage = useSelector(state => state.currentPage);
+  const selectedMovie = useSelector(state => state.selectedMovie);
 
   // use to dispatch action
   const dispatch = useDispatch();
@@ -39,14 +40,18 @@ const MovieApp = () => {
       setMovies({ ...movies });
     })
   });
-
-const xx = () => {
-
-}
+  // const getMovieDetailsPanelClass = () => {
+  //   if(selectedMovie === '') {
+  //     return ;
+  //   }else {
+  //     return 'movieDetailsPanel flex-column';
+  //   }
+  //   widthFull
+  // }
   
   return (
-    <div className="movieApp">
-      <div className="searchPanel">
+    <div className="movieApp d-flex flex-row">
+      <div className={selectedMovie === ''?'searchPanel flex-column widthFull':'searchPanel flex-column width30p'}>
         <SearchContainer></SearchContainer>
         
         {
@@ -57,15 +62,14 @@ const xx = () => {
            movies.totalResults > 0?<PagingBar totalResults={movies.totalResults}></PagingBar>
            :''
         }
-        
+        <div className="overlaySearchPanel"></div>
+      </div>
+      <div className={selectedMovie === ''?'movieDetailsPanel flex-column noDisplay':'movieDetailsPanel flex-column'}>
+        Jai Shri Ram!!
       </div>
     </div>
   );
 };
 
-// class Movies {
-//   search = [];
-//   totalResults = 100;  
-// }
 
 export default MovieApp;

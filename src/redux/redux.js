@@ -8,7 +8,8 @@ const initState = {
       totalResults: aa.totalResults
     },
     searchKey: '',
-    currentPage: 1
+    currentPage: 1,
+    selectedMovie: ''
   };
 
 const store = createStore(

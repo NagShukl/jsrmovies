@@ -1,4 +1,4 @@
-import {LOAD_MOVIES, UPDATE_SEARCH_KEY, UPDATE_CURRENT_PAGE} from './actions'
+import {LOAD_MOVIES, UPDATE_SEARCH_KEY, UPDATE_CURRENT_PAGE, UPDATE_SELECTED_MOVIE} from './actions'
 import initState from './redux';
 
   const AppReducer = (state = initState, action) => {
@@ -9,8 +9,16 @@ import initState from './redux';
         return updateSearchKey(action.searchKey, state);
       case UPDATE_CURRENT_PAGE:
         return updateCurrentPage(action.cp, state);
+      case UPDATE_SELECTED_MOVIE:
+        return updateSelectedMovie(action.movieId, state);
       default:
         return state;
+    }
+  }
+  const updateSelectedMovie = (movieId, state) => {
+    return {
+      ...state,
+      selectedMovie: movieId
     }
   }
 const updateMovies = (movies, state) => {
