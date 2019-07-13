@@ -4,30 +4,34 @@ import { updateCurrentPageAction } from '../redux/actions';
 
 const PagingBar = (props) => {
     const currentPage = useSelector(state => state.currentPage);
-    // const movies = useSelector(state => state.movies);
     const dispatch = useDispatch();
-    // const performSearch = (e) => {
-    //     e.preventDefault();
-    //     const val = e.target.searchInput.value;
-    //     console.log('Search key change = ' + val);
-    //     dispatch(updateCurrentPageAction(1));
-    //     dispatch(updateSearchKeyAction(val));
-    // }
+ 
     const getNextPage = () => {
         dispatch(updateCurrentPageAction(currentPage + 1));
         console.log('getNextPage currentPage=' + currentPage);
-        // performSearchMovie();
       }
       const getPreviousPage = () => {
         dispatch(updateCurrentPageAction(currentPage - 1));
         console.log('getPreviousPage currentPage=' + currentPage);
-        // performSearchMovie();
       }
+      const getFirstPage = () => {
+        dispatch(updateCurrentPageAction(1));
+        console.log('getPreviousPage currentPage=' + currentPage);
+      }
+      const getLastPage = () => {
+        dispatch(updateCurrentPageAction(Number.parseInt((props.totalResults/10)+1)));
+      }
+     
     return (
         <div className="pagingBar">
-            <button onClick={getPreviousPage} value="next">&lt;</button>
-            Page {currentPage} {props.totalResults}
-        <button onClick={getNextPage} value="next">&gt;</button>
+            <div onClick={getFirstPage} className="pageBtn previousBtn" title="First Page">&#9664;</div>
+            <div onClick={getPreviousPage} className={currentPage === 1?'noDisplay':'pageBtn previousBtn'}
+            title="Previous Page">&#9665;</div>
+            <div className="pageData">Page {currentPage}/{props.totalResults} Results.</div>
+            <div onClick={getLastPage} className="pageBtn nextBtn" title="Last Page">&#9654;</div>
+        <div onClick={getNextPage} className={currentPage*10>=props.totalResults?'noDisplay':'pageBtn nextBtn'}
+        title="Next Page">&#9655;</div>
+        
         </div>
     );
 };

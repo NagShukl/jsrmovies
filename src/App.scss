@@ -40,6 +40,25 @@ body {
                     opacity: 1;
                     z-index: 150;
                     background-color: white;
+                    text-align: center;
+                    height: 30px;
+                    .pageBtn {
+                        font-size: xx-large;
+                        display: inline;
+                        // border: 2px solid black;
+                        &:hover {
+                            cursor: pointer;
+                            color: blue;
+                        }
+                    }
+                   .previousBtn {
+                    float: left;
+                    margin-top: -14px;
+                   }
+                   .nextBtn {
+                    float: right;
+                    margin-top: -38px;
+                   }
                 }
                 
                 ul {
@@ -47,12 +66,22 @@ body {
                     margin-left: -2.6em;
                     list-style: none;
                     margin-top: 5px;
-                    margin-bottom: 5px;
+                    margin-bottom: 10px;
                     li {
                         background-color: $movieCardBackColor;
                         color: $movieCardFontColor;
                         margin: 3px;
                         border-radius: 10px;
+                        .selectedIcon {
+                            float: right;
+                            /* margin-right: -4px; */
+                            position: relative;
+                            margin-top: -50px;
+                            img {
+                                width: 25px;
+                                height: 25px;
+                            }
+                        }
                         div > img {
                             width: 40px;
                             height: 50px;
@@ -70,10 +99,10 @@ body {
                             background-color: $movieCardHoverBackColor;
                             color: $movieCardHoverFontColor;
                             cursor: pointer;
-                            div > img {
-                                width: 40px;
-                                height: 50px;
-                            }
+                            // div > img {
+                            //     width: 40px;
+                            //     height: 50px;
+                            // }
                         }                        
                     }
                 }
@@ -83,7 +112,7 @@ body {
                 animation-name: mainPanelSlideIn;
                 animation-duration: 2s;
                 .MovieDetails {
-                    height: 90vh;
+                    height: 97vh;
                     overflow-y: auto;
                     overflow-x: hidden;
                     margin: 10px;

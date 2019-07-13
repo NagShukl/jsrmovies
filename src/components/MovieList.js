@@ -13,12 +13,11 @@ const MovieList = () => {
     }
     return (
         <div className="movieList">
-            Jai Shri Ram! Selected Movie={selectedMovie}
         <ul className="movieListContainer">
           {
             movies.Search.map(ele => {
             //   return <li key={ele.imdbID}>{ele.Title}</li>;
-            return MovieCard({ele, updateSelectedMovie});
+            return MovieCard({ele, updateSelectedMovie, selectedMovie});
             })
           }
         </ul>
