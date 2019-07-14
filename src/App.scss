@@ -183,6 +183,16 @@ body {
             }
         }        
     }
+    .appErr {
+        top: 35vh;
+        position: absolute;
+        left: 35vw;
+        font-size: xx-large;
+        font-weight: bolder;
+        background-color: $movieCardBackColor;
+        padding: 10px;
+        border-radius: 10%;
+    }
 }
 @-webkit-keyframes mainPanelSlideIn {
     from {width: 0%}

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import movieService from '../services/api/Movie';
-import { updateMoviesAction, updateSeclectedMovieAction, updateCurrentPageAction } from '../redux/actions';
+import { updateMoviesAction, updateSeclectedMovieAction } from '../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import MovieList from './MovieList';
 import MovieDetails from './MovieDetails';
 import SearchContainer from './searchContainer';
 import PagingBar from './PagingBar';
+import AppError from './AppError';
 
 const MovieApp = () => {
-  // const [movies, setMovies] = useState({Search: [],totalResults: 0});
   const movies = useSelector(state => state.movies);
   const searchKey = useSelector(state => state.searchKey);
   const currentPage = useSelector(state => state.currentPage);
@@ -17,7 +17,7 @@ const MovieApp = () => {
   // use to dispatch action
   const dispatch = useDispatch();
   const setMovies = (movies) => dispatch(updateMoviesAction(movies));
-  const updateCurrentPage = (currentPage) => dispatch(updateCurrentPageAction(currentPage));
+  const [error, setError] = useState('');
 
   useEffect(() => {
     // make an API call to load twittes
@@ -30,15 +30,19 @@ const MovieApp = () => {
     if (searchKey === '')
       return;
     movieService.searchMovieList(searchKey, currentPage).then(response => {
-      console.log('**JSR got movies=' + response.data.totalResults + ' : ' + response.data.Search.length);
+      
+      if(response.data.Response === 'False') {
+        setError(response.data.Error);
+        movies.Search = [];
+        movies.totalResults = 0;
+        setMovies({ ...movies });
+        return;
+      }
       movies.Search = response.data.Search;
       movies.totalResults = response.data.totalResults;
       setMovies({ ...movies });
     }).catch(err => {
-      console.log('**JSR something went wrong with api call' + err);
-      movies.Search = [];
-      movies.totalResults = 0;
-      setMovies({ ...movies });
+      setError('Something went wrong, Please try refreshing page.');
     })
   });
 
@@ -59,6 +63,10 @@ const MovieApp = () => {
         {
            movies.totalResults > 0?<PagingBar totalResults={movies.totalResults}></PagingBar>
            :''
+        }
+        {
+          (!movies.totalResults || movies.totalResults === 0)?<AppError errMsg={error}></AppError>
+            :''         
         }
         
       </div>
