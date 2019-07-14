@@ -20,12 +20,10 @@ const MovieApp = () => {
 
   useEffect(() => {
     // make an API call to load twittes
-    console.log('**JAI Shri Ram!! useEffect making call to get data');
     performSearchMovie();
   }, [searchKey, currentPage]);
 
   const performSearchMovie = (() => {
-    console.log('**JSR performing search with searchKey=', searchKey + ' : ' + currentPage);
     if (searchKey === '')
       return;
     movieService.searchMovieList(searchKey, currentPage).then(response => {
@@ -51,11 +49,11 @@ const MovieApp = () => {
 
 
   return (
-    <div className="movieApp d-flex flex-row">
-      <div className={selectedMovie === '' ? 'searchPanel flex-column widthFull' : 'searchPanel flex-column width30p'}>
+    <div className="movieApp d-flex flex-row" data-test="MovieApp">
+      <div className={selectedMovie === '' ? 'searchPanel flex-column widthFull' : 'searchPanel flex-column width30p'} data-test="SearchPanel">
         <SearchContainer error={error}></SearchContainer>
       </div>
-      <div className={selectedMovie === '' ? 'movieDetailsPanel flex-column noDisplay' : 'movieDetailsPanel flex-column'}>
+      <div className={selectedMovie === '' ? 'movieDetailsPanel flex-column noDisplay' : 'movieDetailsPanel flex-column'} data-test="MovieDetailsPanel">
         <MovieDetails></MovieDetails>
         <div className="hideDetails" onClick={clearMovieSelection}>X</div>
       </div>

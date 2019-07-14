@@ -19,16 +19,16 @@ const MovieDetails = () => {
       }
     return (
         <div className="MovieDetails flex-row">
-            <div className="movieTitle col-12">{selectedMovieData.data.Title}</div>
-            <div className="moviePoster col-lg-6 col-sm-12 col-md-12">
+            <div className="movieTitle col-12" data-test="movieTitle">{selectedMovieData.data.Title}</div>
+            <div className="moviePoster col-lg-6 col-sm-12 col-md-12" data-test="moviePoster">
                 <img src={selectedMovieData.data.Poster} alt="Movie Poster"></img>
             </div>
             <div className="moviePlot col-lg-6 col-sm-12 col-md-12">
-                <div className="col-12"><strong>Movie Plot: </strong> {selectedMovieData.data.Plot}</div>
-                <div className="col-12"><strong>Language: </strong> {selectedMovieData.data.Language}</div>
-                <div className="col-12"><strong>Director: </strong> {selectedMovieData.data.Director}</div>
-                <div className="col-12"><strong>Actors: </strong> {selectedMovieData.data.Actors}</div>
-                <div className="col-12"><strong>Duration: </strong> {selectedMovieData.data.Runtime}</div>
+                <div className="col-12" data-test="moviePlot"><strong>Movie Plot: </strong> {selectedMovieData.data.Plot}</div>
+                <div className="col-12" data-test="movieLanguage"><strong>Language: </strong> {selectedMovieData.data.Language}</div>
+                <div className="col-12" data-test="movieDirector"><strong>Director: </strong> {selectedMovieData.data.Director}</div>
+                <div className="col-12" data-test="movieActors"><strong>Actors: </strong> {selectedMovieData.data.Actors}</div>
+                <div className="col-12" data-test="movieDuration"><strong>Duration: </strong> {selectedMovieData.data.Runtime}</div>
             </div>
             
         </div>

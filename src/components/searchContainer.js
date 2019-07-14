@@ -12,16 +12,15 @@ const SearchContainer = (props) => {
     const performSearch = (e) => {
         e.preventDefault();
         const val = e.target.searchInput.value;
-        console.log('Search key change = ' + val);
         dispatch(updateCurrentPageAction(1));
         dispatch(updateSearchKeyAction(val));
     }
     return (
         <div>
-            <div className="SearchContainer">
+            <div className="SearchContainer" data-test="SearchContainer">
                 <form onSubmit={performSearch}>
                     <input name="searchInput" type="search" className='form-control' autoComplete="off"
-                        placeholder='Search key...' defaultValue={searchKey}></input>
+                        placeholder='Search key...' defaultValue={searchKey} data-test="movieSearchInput"></input>
                 </form>
             </div>
             {

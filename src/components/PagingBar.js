@@ -23,13 +23,13 @@ const PagingBar = (props) => {
 
     return (
         <div className="pagingBar">
-            <div onClick={getFirstPage} className="pageBtn previousBtn" title="First Page">&#9664;</div>
+            <div onClick={getFirstPage} className="pageBtn previousBtn" title="First Page" data-test="FirstPageBtn">&#9664;</div>
             <div onClick={getPreviousPage} className={currentPage === 1 ? 'noDisplay' : 'pageBtn previousBtn'}
-                title="Previous Page">&#9665;</div>
+                title="Previous Page" data-test="PreviousPageBtn">&#9665;</div>
             <div className="pageData">Page {currentPage} of {props.totalResults} Results.</div>
-            <div onClick={getLastPage} className="pageBtn nextBtn" title="Last Page">&#9654;</div>
+            <div onClick={getLastPage} className="pageBtn nextBtn" title="Last Page" data-test="LastPageBtn">&#9654;</div>
             <div onClick={getNextPage} className={currentPage * 10 >= props.totalResults ? 'noDisplay' : 'pageBtn nextBtn'}
-                title="Next Page">&#9655;</div>
+                title="Next Page" data-test="NextPageBtn">&#9655;</div>
 
         </div>
     );

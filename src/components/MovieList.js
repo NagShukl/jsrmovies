@@ -16,7 +16,6 @@ const MovieList = () => {
         <ul className="movieListContainer">
           {
             movies.Search.map(ele => {
-            //   return <li key={ele.imdbID}>{ele.Title}</li>;
             return MovieCard({ele, updateSelectedMovie, selectedMovie});
             })
           }
