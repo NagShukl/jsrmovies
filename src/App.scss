@@ -192,6 +192,9 @@ body {
         background-color: $movieCardBackColor;
         padding: 10px;
         border-radius: 10%;
+        @media screen and (max-width: 900px) {
+            left: 12vw;
+        }
     }
 }
 @-webkit-keyframes mainPanelSlideIn {
