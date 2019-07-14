@@ -1,4 +1,4 @@
-Visit live application [https://nagshukl.github.io/jsrmovies/](https://nagshukl.github.io/jsrmovies/)
+Visit live application [https://nagshukl.github.io/jsrmovies/](https://nagshukl.github.io/jsrmovies/) <br><br>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
