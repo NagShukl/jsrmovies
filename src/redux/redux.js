@@ -7,7 +7,7 @@ const initState = {
       Search: aa.Search,
       totalResults: aa.totalResults
     },
-    searchKey: '',
+    searchKey: 'Ram',
     currentPage: 1,
     selectedMovie: ''
   };

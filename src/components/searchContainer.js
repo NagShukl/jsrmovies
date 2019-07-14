@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateSearchKeyAction, updateCurrentPageAction } from '../redux/actions';
 
 const SearchContainer = () => {
+    const searchKey = useSelector(state => state.searchKey);
     const dispatch = useDispatch();
     const performSearch = (e) => {
         e.preventDefault();
@@ -15,7 +16,7 @@ const SearchContainer = () => {
         <div className="SearchContainer">
             <form onSubmit={performSearch}>
                 <input name="searchInput" type="search" className='form-control' autoComplete="off"
-                    placeholder='Search key...'></input>
+                    placeholder='Search key...' defaultValue={searchKey}></input>
             </form>
         </div>
     );
