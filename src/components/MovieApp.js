@@ -24,12 +24,13 @@ const MovieApp = () => {
   }, [searchKey, currentPage]);
 
   const performSearchMovie = (() => {
-    if (searchKey === '')
-      return;
     movieService.searchMovieList(searchKey, currentPage).then(response => {
 
       if (response.data.Response === 'False') {
-        setError(response.data.Error);
+        if (searchKey === '')
+          setError("Search for movie.");
+        else
+          setError(response.data.Error);
         movies.Search = [];
         movies.totalResults = 0;
         setMovies({ ...movies });
